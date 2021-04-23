@@ -33,3 +33,27 @@ const vtpass = require('./index');
 //     console.log(verifyEmail);
 // })();
 
+// (async function(){
+//     const vtPassClass = new vtpass();
+//     const varationCodes = await vtPassClass.tv.getVariationCodes('dstv');
+//     console.log(varationCodes);
+// })();
+
+// (async function(){
+//     const vtPassClass = new vtpass();
+//     const provider = 'dstv';
+//     const billersCode = 1212121212;
+//     const verifySmartCard = await vtPassClass.tv.verifySmartCard(provider, billersCode);
+//     console.log(verifySmartCard);
+// })();
+
+// (async function(){
+//     const vtPassClass = new vtpass();
+//     const smartCard = 1212121212;
+//     const provider = 'dstv';
+//     const phone = '08011111111';
+//     const variationCode = 'dstv-padi';
+//     const verifySmartCard = await vtPassClass.tv.subscribeTv(smartCard, provider, phone, variationCode);
+//     console.log(verifySmartCard);
+// })();
+

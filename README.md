@@ -72,3 +72,40 @@ The below examples the classes are initiated in sandbox mode, to intiate the vtp
     console.log(verifyEmail);
 })();
 ```
+
+```javascript
+   //get variation codes for tvn subscriptions
+     const vtPassClass = require('vtpassnodejs');
+(async function(){
+    const vtPassClass = new vtpass();
+	const provider = 'dstv'; //dstv, gotv, startimes
+    const varationCodes = await vtPassClass.tv.getVariationCodes(provider);
+    console.log(varationCodes);
+})();
+```
+
+```javascript
+   //verify smart card number
+     const vtPassClass = require('vtpassnodejs');
+(async function(){
+    const vtPassClass = new vtpass();
+    const provider = 'dstv';
+    const billersCode = 1212121212;
+    const verifySmartCard = await vtPassClass.tv.verifySmartCard(provider, billersCode);
+    console.log(verifySmartCard);
+})();
+```
+
+```javascript
+   //subscribe tv
+     const vtPassClass = require('vtpassnodejs');
+(async function(){
+    const vtPassClass = new vtpass();
+    const smartCard = 1212121212;
+    const provider = 'dstv';
+    const phone = '08011111111';
+    const variationCode = 'dstv-padi';
+    const verifySmartCard = await vtPassClass.tv.subscribeTv(smartCard, provider, phone, variationCode);
+    console.log(verifySmartCard);
+})();
+```
