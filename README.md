@@ -128,7 +128,7 @@ The below examples the classes are initiated in sandbox mode, to intiate the vtp
      const vtPassClass = require('vtpassnodejs');
 (async function(){
     const vtPassClass = new vtpass();
-    const provider = 'ikeja-electric';
+    const provider = 'ikeja-electric'; // ikeja-electric, eko-electric, kano-electric, portharcourt-electric, jos-electric, ibadan-electric, kaduna-electric, abuja-electric
     const meterNumber = 1111111111111;
     const meterType = 'prepaid';
     const amount = 5000;
