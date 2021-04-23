@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Chibuokem/vtpassnodejs#readme",
   "dependencies": {
-    "axios": "^0.21.1"
+    "@supercharge/strings": "^1.18.0",
+    "axios": "^0.21.1",
+    "crypto-random-string": "^4.0.0"
   }
 }
