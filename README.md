@@ -122,3 +122,18 @@ The below examples the classes are initiated in sandbox mode, to intiate the vtp
     console.log(verifyMeter);
 })();
 ```
+
+```javascript
+   //buy electricity token
+     const vtPassClass = require('vtpassnodejs');
+(async function(){
+    const vtPassClass = new vtpass();
+    const provider = 'ikeja-electric';
+    const meterNumber = 1111111111111;
+    const meterType = 'prepaid';
+    const amount = 5000;
+    const phone = '08011111111';
+    const rechargeLight = await vtPassClass.electricity.rechargeLight(meterNumber, provider, amount, phone, meterType);
+    console.log(rechargeLight);
+})();
+```
