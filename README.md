@@ -109,3 +109,16 @@ The below examples the classes are initiated in sandbox mode, to intiate the vtp
     console.log(verifySmartCard);
 })();
 ```
+
+```javascript
+   //verify electricity meter number
+     const vtPassClass = require('vtpassnodejs');
+(async function(){
+    const vtPassClass = new vtpass();
+    const provider = 'ikeja-electric';
+    const meterNumber = 1111111111111;
+    const type = 'prepaid'; //can be prepaid or postpaid
+    const verifyMeter = await vtPassClass.electricity.verifyMeterNumber(meterNumber, provider, type)
+    console.log(verifyMeter);
+})();
+```

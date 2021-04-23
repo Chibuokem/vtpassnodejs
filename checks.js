@@ -57,3 +57,22 @@ const vtpass = require('./index');
 //     console.log(verifySmartCard);
 // })();
 
+// (async function(){
+//     const vtPassClass = new vtpass();
+//     const provider = 'ikeja-electric';
+//     const meterNumber = 1111111111111;
+//     const type = 'prepaid';
+//     const verifyMeter = await vtPassClass.electricity.verifyMeterNumber(meterNumber, provider, type)
+//     console.log(verifyMeter);
+// })();
+
+// (async function(){
+//     const vtPassClass = new vtpass();
+//     const provider = 'ikeja-electric';
+//     const meterNumber = 1111111111111;
+//     const meterType = 'prepaid';
+//     const amount = 5000;
+//     const phone = '08011111111';
+//     const rechargeLight = await vtPassClass.electricity.rechargeLight(meterNumber, provider, amount, phone, meterType);
+//     console.log(rechargeLight);
+// })();

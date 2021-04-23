@@ -1,6 +1,7 @@
 const airtime = require('./library/airtime/airtime');
 const data = require('./library/data/data');
 const tv = require('./library/tv/tv');
+const electricity = require('./library/electricity/electricity');
 class Vtpass{
     constructor(environment = 'development', username = '', password = '') {
         if(environment == 'production'){
@@ -12,6 +13,7 @@ class Vtpass{
         this.airtime = new airtime(this.auth, environment);
         this.data = new data(this.auth, environment);
         this.tv = new tv(this.auth, environment);
+        this.electricity = new electricity(this.auth, environment);
     }
 }
 module.exports = Vtpass;
