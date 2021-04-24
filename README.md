@@ -3,9 +3,9 @@ A Package to interact with vtpass api using nodejs
 
 [Vtpass documentation](https://www.vtpass.com/documentation/)
 
-[Response codes] (https://www.vtpass.com/documentation/response-codes/)
+[Response codes](https://www.vtpass.com/documentation/response-codes/)
 
-[Webook] (https://www.vtpass.com/documentation/callback-api-integration/)
+[Webook](https://www.vtpass.com/documentation/callback-api-integration/)
 
 #installation
 You can install the package via npm :
