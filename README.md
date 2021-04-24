@@ -47,7 +47,7 @@ Please note that for the below examples the classes are initiated in sandbox mod
    (async function(){
     const vtPassClass = new vtpass();
 	const provider = 'mtn' //you can have mtn, airtel, etisalat, glo, smile
-    const variationCodes = await vtPassClass.data.getVariationCodes('mtn');
+    const variationCodes = await vtPassClass.data.getVariationCodes('mtn');tester
     console.log(variationCodes);
 })();
 ```
@@ -82,7 +82,7 @@ Please note that for the below examples the classes are initiated in sandbox mod
      const vtPassClass = require('vtpassnodejs');
 (async function(){
     const vtPassClass = new vtpass();
-	const email = ''tester@sandbox.com';
+	const email = 'tester@sandbox.com';
     const verifyEmail = await vtPassClass.data.verifySmileEmail(email);
     console.log(verifyEmail);
 })();
