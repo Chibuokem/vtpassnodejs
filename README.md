@@ -179,5 +179,14 @@ Please note that for the below examples the classes are initiated in sandbox mod
 })();
 ```
 
+```javascript
+//requery transaction status
+(async function(){
+    const vtPassClass = new vtpass();
+    const request_id = 'llmOt7lzlOVKQCavfD3U6887';
+    const requeryService = await vtPassClass.requeryTransaction(request_id)
+    console.log(requeryService);
+})();
+```
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
