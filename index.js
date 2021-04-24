@@ -3,6 +3,7 @@ const data = require('./library/data/data');
 const tv = require('./library/tv/tv');
 const electricity = require('./library/electricity/electricity');
 const educational = require('./library/educational/educational');
+const bank = require('./library/bank/bank');
 const axiosClass = require('./config/axios');
 class Vtpass{
     constructor(environment = 'development', username = '', password = '') {
@@ -17,9 +18,11 @@ class Vtpass{
         this.data = new data(this.auth, environment);
         this.tv = new tv(this.auth, environment);
         this.electricity = new electricity(this.auth, environment);
-        this.educational = new educational(this.auth, environment)
+        this.educational = new educational(this.auth, environment);
+        this.bank = new bank(this.auth, environment);
     }
 
+    //requery transaction status
     async requeryTransaction(request_id){
         const axios = new axiosClass(this.enviroment).getAxios();
           try{

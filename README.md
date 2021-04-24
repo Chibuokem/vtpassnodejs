@@ -1,8 +1,11 @@
 # vtpassnodejs
 A Package to interact with vtpass api using nodejs
 
-#[Vtpass documentation](https://www.vtpass.com/documentation/)
+[Vtpass documentation](https://www.vtpass.com/documentation/)
 
+[Response codes] (https://www.vtpass.com/documentation/response-codes/)
+
+[Webook] (https://www.vtpass.com/documentation/callback-api-integration/)
 
 #installation
 You can install the package via npm :
@@ -186,6 +189,39 @@ Please note that for the below examples the classes are initiated in sandbox mod
     const request_id = 'llmOt7lzlOVKQCavfD3U6887';
     const requeryService = await vtPassClass.requeryTransaction(request_id)
     console.log(requeryService);
+})();
+```
+
+```javascript
+//get list of banks
+(async function(){
+    const vtPassClass = new vtpass();
+    const banks = await vtPassClass.bank.getVariationCodes();
+    console.log(banks);
+})();
+```
+
+```javascript
+//verify account number
+(async function(){
+    const vtPassClass = new vtpass();
+    const bank = 'zenith-mobile'; //gotten from bank varation codes
+    const accountNumber = 1234567890;
+    const bankDetail = await vtPassClass.bank.verifyAccountNumber(bank, accountNumber);
+    console.log(bankDetail);
+})();
+```
+
+```javascript
+//send money across to banks, please also setup webhooks for this service 
+(async function(){
+    const vtPassClass = new vtpass();
+    const bank = 'zenith-mobile'; //gotten from bank variation codes
+    const accountNumber = 1234567890;
+    const amount = 100000;
+    const phone = '08011111111';
+    const deposit = await vtPassClass.bank.deposit(accountNumber, bank, amount, phone);
+    console.log(deposit);
 })();
 ```
 
