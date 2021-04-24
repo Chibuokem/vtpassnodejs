@@ -1,0 +1,24 @@
+{
+  "name": "vtpassnodejs",
+  "version": "1.0.0",
+  "description": "A node package to interact with vtpass apis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chibuokem/vtpassnodejs.git"
+  },
+  "author": "Chibuokem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chibuokem/vtpassnodejs/issues"
+  },
+  "homepage": "https://github.com/Chibuokem/vtpassnodejs#readme",
+  "dependencies": {
+    "@supercharge/strings": "^1.18.0",
+    "axios": "^0.21.1",
+    "crypto-random-string": "^4.0.0"
+  }
+}
