@@ -220,7 +220,8 @@ Please note that for the below examples the classes are initiated in sandbox mod
     const accountNumber = 1234567890;
     const amount = 100000;
     const phone = '08011111111';
-    const deposit = await vtPassClass.bank.deposit(accountNumber, bank, amount, phone);
+	const request_id = 'your unique request id';
+    const deposit = await vtPassClass.bank.deposit(accountNumber, bank, amount, phone, request_id);
     console.log(deposit);
 })();
 ```
