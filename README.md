@@ -1,17 +1,31 @@
 # vtpassnodejs
 A Package to interact with vtpass api using nodejs
 
+#[Vtpass documentation](https://www.vtpass.com/documentation/)
+
+
 #installation
 You can install the package via npm :
 ```bash
 npm install vtpassnodejs
 ```
+
+
 #Usage
-The below examples the classes are initiated in sandbox mode, to intiate the vtpass class in production mode , you will do as shown below 
+Please note that for the below examples the classes are initiated in sandbox mode, to intiate the vtpass class in production mode , you will do as shown below 
 ```javascript
+//for production mode
  const vtPassClass = new vtpass('production', 'your username', 'your password');
  
  ```
+ ```javascript
+//for test mode
+ const vtPassClass = new vtpass();
+ 
+ ```
+
+
+
 
 ```javascript
    //recharge airtime
@@ -21,8 +35,8 @@ The below examples the classes are initiated in sandbox mode, to intiate the vtp
 	const phone = '08011111111' //this works for test mode 
 	const amount = 200;
 	const network = 'mtn'; //you can have mtn, airtel, etisalat, glo, smile
-	const variationCode = 'mtn-10mb-100'; //list of variation codes can be gotten from the getVariationCodes method above
-    const buyAirtime = await vtPassClass.airtime.rechargeAirtime(network, amount, phone, variationCode);
+	const request_id = 'your unique request id'; // if not passed , one is generated for you automatically by the package
+    const buyAirtime = await vtPassClass.airtime.rechargeAirtime(network, amount, phone, variationCode, request_id);
     console.log(buyAirtime);
 })();
 ```
@@ -46,7 +60,8 @@ The below examples the classes are initiated in sandbox mode, to intiate the vtp
     const variationCode = 'mtn-10mb-100';
     const phone = '08011111111';
     const network = 'mtn'; //you can have mtn, airtel, etisalat, glo, smile
-    const buyData = await vtPassClass.data.buyData(phone, network, variationCode);
+	const request_id = 'your unique request id'; // if not passed , one is generated for you automatically by the package
+    const buyData = await vtPassClass.data.buyData(phone, network, variationCode, request_id);
     console.log(buyData);
 })();
 ```
@@ -105,7 +120,8 @@ The below examples the classes are initiated in sandbox mode, to intiate the vtp
     const provider = 'dstv';
     const phone = '08011111111';
     const variationCode = 'dstv-padi';
-    const verifySmartCard = await vtPassClass.tv.subscribeTv(smartCard, provider, phone, variationCode);
+	const request_id = 'your unique request id'; // if not passed , one is generated for you automatically by the package
+    const verifySmartCard = await vtPassClass.tv.subscribeTv(smartCard, provider, phone, variationCode, request_id);
     console.log(verifySmartCard);
 })();
 ```
@@ -133,7 +149,33 @@ The below examples the classes are initiated in sandbox mode, to intiate the vtp
     const meterType = 'prepaid';
     const amount = 5000;
     const phone = '08011111111';
-    const rechargeLight = await vtPassClass.electricity.rechargeLight(meterNumber, provider, amount, phone, meterType);
+	const request_id = 'your unique request id'; // if not passed , one is generated for you automatically by the package
+    const rechargeLight = await vtPassClass.electricity.rechargeLight(meterNumber, provider, amount, phone, meterType, request_id);
     console.log(rechargeLight);
 })();
 ```
+
+```javascript
+//get variation codes for educational services 
+(async function(){
+    const vtPassClass = new vtpass();
+	const service = 'waec-registration'; //waec-registration, waec waec-registration is for waec registration, waec option is for result checking service
+    const varationCodes = await vtPassClass.educational.getVariationCodes(service);
+    console.log(varationCodes);
+})();
+```
+
+```javascript
+//purchase token for an educational service
+(async function(){
+    const vtPassClass = new vtpass();
+    const service = 'waec-registration';  //waec-registration, waec waec-registration is for waec registration, waec option is for result checking service
+    const amount = 14450; //this is gotten from variation amount on the get variation codes point
+    const phone = '08011111111';
+    const variation_code = 'waec-registraion'; //this is the variation code gotten from the method above for the service that it belongs 
+	const request_id = 'your unique request id'; // if not passed , one is generated for you automatically by the packag
+    const registerService = await vtPassClass.educational.registerService(service, amount, phone, variation_code, request_id);
+    console.log(registerService);
+})();
+```
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)

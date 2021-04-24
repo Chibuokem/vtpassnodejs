@@ -2,10 +2,12 @@ const airtime = require('./library/airtime/airtime');
 const data = require('./library/data/data');
 const tv = require('./library/tv/tv');
 const electricity = require('./library/electricity/electricity');
+const educational = require('./library/educational/educational');
 class Vtpass{
     constructor(environment = 'development', username = '', password = '') {
         if(environment == 'production'){
-            this.auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
+            const token =  new Buffer.from(username + ":" + password).toString("base64");
+            this.auth = `Basic ${token}`;
         }else{
             this.auth = "Basic c2FuZGJveEB2dHBhc3MuY29tOnNhbmRib3g=";
         }
@@ -14,6 +16,7 @@ class Vtpass{
         this.data = new data(this.auth, environment);
         this.tv = new tv(this.auth, environment);
         this.electricity = new electricity(this.auth, environment);
+        this.educational = new educational(this.auth, environment)
     }
 }
 module.exports = Vtpass;
