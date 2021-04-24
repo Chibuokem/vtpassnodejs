@@ -47,7 +47,7 @@ Please note that for the below examples the classes are initiated in sandbox mod
    (async function(){
     const vtPassClass = new vtpass();
 	const provider = 'mtn' //you can have mtn, airtel, etisalat, glo, smile
-    const variationCodes = await vtPassClass.data.getVariationCodes('mtn');tester
+    const variationCodes = await vtPassClass.data.getVariationCodes('mtn');
     console.log(variationCodes);
 })();
 ```
