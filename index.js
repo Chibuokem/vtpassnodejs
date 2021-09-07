@@ -8,10 +8,11 @@ const axiosClass = require('./config/axios');
 class Vtpass{
     constructor(environment = 'development', username = '', password = '') {
         if(environment == 'production'){
-            const token =  new Buffer.from(username + ":" + password).toString("base64");
+            let token =  new Buffer.from(username + ":" + password).toString("base64");
             this.auth = `Basic ${token}`;
         }else{
-            this.auth = "Basic c2FuZGJveEB2dHBhc3MuY29tOnNhbmRib3g=";
+            let token =  new Buffer.from(username + ":" + password).toString("base64");
+            this.auth = `Basic ${token}`;
         }
         this.enviroment = environment;
         this.airtime = new airtime(this.auth, environment);
