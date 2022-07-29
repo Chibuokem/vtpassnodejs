@@ -1,5 +1,6 @@
 const axiosClass = require('../../config/axios');
 const Str = require('@supercharge/strings');
+const reqId = require('../../helpers/requestid')
 
 class Educational {
     constructor(auth, enviroment) {
@@ -22,7 +23,7 @@ class Educational {
     //register educational service
     async registerService(service, amount, phone, variation_code, request_id = ''){
         if(request_id == ''){
-            request_id = Str.random();
+            request_id = reqId();
         }
 
         try{

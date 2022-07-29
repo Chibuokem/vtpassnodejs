@@ -1,5 +1,6 @@
 const axiosClass = require('../../config/axios');
 const Str = require('@supercharge/strings');
+const reqId = require('../../helpers/requestid')
 class Electricity {
     constructor(auth, enviroment) {
         this.auth = auth;
@@ -25,7 +26,7 @@ class Electricity {
     //recharge light
     async rechargeLight(meterNumber, provider, amount, phone, meterType = 'prepaid', request_id = '') {
         if(request_id == ''){
-            request_id = Str.random();
+            request_id = reqId();
         }
 
         try{

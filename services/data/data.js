@@ -1,5 +1,6 @@
 const axiosClass = require('../../config/axios');
 const Str = require('@supercharge/strings');
+const reqId = require('../../helpers/requestid')
 
 class Data {
     constructor(auth, enviroment) {
@@ -27,7 +28,7 @@ class Data {
     //buy data
     async buyData(phone, network, variation_code, request_id = ''){
         if(request_id == ''){
-            request_id = Str.random();
+            request_id = reqId();
         }
         //billers code is just put, doesnt have any effect for this service, but seems to be required on the doc
         const billersCode = "08011111111";

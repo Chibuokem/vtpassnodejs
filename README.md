@@ -6,6 +6,7 @@ A Package to interact with vtpass api using nodejs
 [Response codes](https://www.vtpass.com/documentation/response-codes/)
 
 [Webook](https://www.vtpass.com/documentation/callback-api-integration/)
+[how to generate request id] (https://www.vtpass.com/documentation/how-to-generate-request-id/)
 
 #installation
 You can install the package via npm :
@@ -63,7 +64,7 @@ Please note that for the below examples the classes are initiated in sandbox mod
     const variationCode = 'mtn-10mb-100';
     const phone = 08011111111;
     const network = 'mtn'; //you can have mtn, airtel, etisalat, glo, smile
-	const request_id = 'your unique request id'; // if not passed , one is generated for you automatically by the package
+	const request_id = 'your unique request id'; // if not passed , one is generated for you automatically by the package, [how to generate request id] (https://www.vtpass.com/documentation/how-to-generate-request-id/)
     const buyData = await vtPassClass.data.buyData(phone, network, variationCode, request_id);
     console.log(buyData);
 })();

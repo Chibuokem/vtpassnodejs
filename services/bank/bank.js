@@ -1,5 +1,6 @@
 const axiosClass = require('../../config/axios');
 const Str = require('@supercharge/strings');
+const reqId = require('../../helpers/requestid')
 class Bank{
     constructor(auth, enviroment) {
         this.auth = auth;
@@ -38,7 +39,7 @@ class Bank{
     //transfer to bank
     async deposit(account_number, bank, amount, phone, request_id = ''){
         if(request_id == ''){
-            request_id = Str.random();
+            request_id = reqId()
         }
         try{
             const serviceID = 'bank-deposit';

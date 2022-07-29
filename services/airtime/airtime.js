@@ -1,5 +1,7 @@
 const axiosClass = require('../../config/axios');
 const Str = require('@supercharge/strings');
+//import requestid
+const reqId = require('../../helpers/requestid')
 class Airtime{
     constructor(auth, enviroment) {
         this.auth = auth;
@@ -8,7 +10,7 @@ class Airtime{
     }
     async rechargeAirtime(network, amount, phone, request_id = ''){
         if(request_id == ''){
-            request_id = Str.random();
+            request_id = reqId();
         }
         try{
             const serviceID = network;
