@@ -125,8 +125,9 @@ Please note that for the below examples the classes are initiated in sandbox mod
     const provider = 'dstv';
     const phone = 08011111111;
     const variationCode = 'dstv-padi';
+    const amount = ''; //amount can be empty, if amount is not empty, the account is topped up the amount
 	const request_id = 'your unique request id'; // if not passed , one is generated for you automatically by the package
-    const verifySmartCard = await vtPassClass.tv.subscribeTv(smartCard, provider, phone, variationCode, request_id);
+    const verifySmartCard = await vtPassClass.tv.subscribeTv(smartCard, provider, phone, variationCode, amount, request_id);
     console.log(verifySmartCard);
 })();
 ```
