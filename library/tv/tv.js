@@ -19,7 +19,7 @@ class Tv {
     //buy data
     async subscribeTv(smartCard, provider, phone, variation_code, amount = '', request_id = '') {
         const tvClass = new tvService(this.auth, this.enviroment);
-        return await tvClass.subscribeTv(smartCard, provider, phone, variation_code, request_id);
+        return await tvClass.subscribeTv(smartCard, provider, phone, variation_code, amount, request_id);
     }
 }
 module.exports = Tv;

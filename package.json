@@ -1,6 +1,6 @@
 {
     "name": "vtpassnodejs",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "A node package to interact with vtpass apis",
     "main": "index.js",
     "scripts": {

@@ -41,7 +41,7 @@ class Tv {
         //billers code is just put, doesnt have any effect for this service, but seems to be required on the doc
         let subscribe;
         try {
-            if (amount == '' || amount == undefined) {
+            if (amount == '' || amount == undefined || amount == null || amount == 0) {
                 subscribe = await this.axios.post(
                     `/pay`, { request_id, serviceID: provider, billersCode: smartCard, variation_code, phone }, { headers: { 'Authorization': this.auth } }
                 );
