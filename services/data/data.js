@@ -4,48 +4,47 @@ const reqId = require('../../helpers/requestid')
 
 class Data {
     constructor(auth, enviroment) {
-        this.auth = auth;
-        this.enviroment = enviroment;
-        this.axios  = new axiosClass(enviroment).getAxios();
-    }
-    //get variation codes for data subscriptions
+            this.auth = auth;
+            this.enviroment = enviroment;
+            this.axios = new axiosClass(enviroment).getAxios();
+        }
+        //get variation codes for data subscriptions
     async getVariationCodes(provider) {
         let serviceID;
-        if(provider == 'smile'){
-             serviceID = provider + "-direct";
-        }else{
-             serviceID = provider + "-data";
+        if (provider == 'smile') {
+            serviceID = provider + "-direct";
+        } else {
+            serviceID = provider + "-data";
         }
         try {
             const variationCodes = await this.axios.get(`/service-variations?serviceID=${serviceID}`);
             return variationCodes.data;
-        }catch (error) {
+        } catch (error) {
             console.error(error.response.data);
             return error.response.data;
         }
     }
 
     //buy data
-    async buyData(phone, network, variation_code, request_id = ''){
-        if(request_id == ''){
+    async buyData(phone, network, variation_code, request_id = '') {
+        if (request_id == '') {
             request_id = reqId();
         }
+        let serviceID;
         //billers code is just put, doesnt have any effect for this service, but seems to be required on the doc
         const billersCode = "08011111111";
-        if(network == 'smile'){
-            const serviceID = network + "-direct";
-        }else{
-            const serviceID = network + "-data";
+        if (network == 'smile') {
+            serviceID = network + "-direct";
+        } else {
+            serviceID = network + "-data";
         }
 
-        try{
+        try {
             const buyData = await this.axios.post(
-                `/pay`,
-                { request_id, serviceID, billersCode, variation_code, phone },
-                {headers: {'Authorization' : this.auth} }
+                `/pay`, { request_id, serviceID, billersCode, variation_code, phone }, { headers: { 'Authorization': this.auth } }
             );
             return buyData.data;
-        }catch(error){
+        } catch (error) {
             console.error(error.response.data);
             return error.response.data;
         }
@@ -53,15 +52,13 @@ class Data {
 
     //verify smile phone number
     async verifySmilePhoneNumber(billersCode) {
-        try{
+        try {
             const serviceID = 'smile-direct';
             const verify = await this.axios.post(
-                `/merchant-verify`,
-                { serviceID, billersCode},
-                {headers: {'Authorization' : this.auth} }
+                `/merchant-verify`, { serviceID, billersCode }, { headers: { 'Authorization': this.auth } }
             );
             return verify.data;
-        }catch(error){
+        } catch (error) {
             console.error(error.response.data);
             return error.response.data;
         }
@@ -69,15 +66,13 @@ class Data {
 
     //verify smile phone number
     async verifySmileEmail(billersCode) {
-        try{
+        try {
             const serviceID = 'smile-direct';
             const verify = await this.axios.post(
-                `/merchant-verify/smile/email`,
-                { serviceID, billersCode},
-                {headers: {'Authorization' : this.auth} }
+                `/merchant-verify/smile/email`, { serviceID, billersCode }, { headers: { 'Authorization': this.auth } }
             );
             return verify.data;
-        }catch(error){
+        } catch (error) {
             console.error(error.response.data);
             return error.response.data;
         }
