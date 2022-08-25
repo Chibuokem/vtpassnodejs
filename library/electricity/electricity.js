@@ -8,12 +8,12 @@ class Electricity {
 
     //verify electricity meter number
     async verifyMeterNumber(meterNumber, provider, type = 'prepaid') {
-       return await this.electricityClass.verifyMeterNumber(meterNumber, provider, type)
+        return await this.electricityClass.verifyMeterNumber(meterNumber, provider, type)
     }
 
     //recharge light
     async rechargeLight(meterNumber, provider, amount, phone, meterType = 'prepaid', request_id = '') {
-        return await this.electricityClass.rechargeLight(meterNumber, provider, amount, phone, meterType, meterType, request_id);
+        return await this.electricityClass.rechargeLight(meterNumber, provider, amount, phone, meterType, request_id);
     }
 }
 module.exports = Electricity;
